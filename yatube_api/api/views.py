@@ -53,8 +53,8 @@ class FollowViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.FollowSerializer
     permission_classes = (IsFollowerOrReadOnly,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter)
-    filterset_fields = ('user', 'author',)
-    search_fields = ('user__username', 'author__username', )
+    filterset_fields = ('user', 'following',)
+    search_fields = ('user__username', 'following__username', )
 
     def get_queryset(self):
         new_queryset = self.request.user.follower.all()
