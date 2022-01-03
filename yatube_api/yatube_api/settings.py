@@ -105,8 +105,6 @@ REST_FRAMEWORK = {
         'user': '100/minute',
         'anon': '100/minute',
     },
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 5,
 }
 
 SIMPLE_JWT = {
