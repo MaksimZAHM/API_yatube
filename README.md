@@ -71,12 +71,13 @@ http://127.0.0.1:8000/api/v1/posts/{id}/
 ```
 Ответ:
 {
-    "id": 1,
-    "author": "admin",
-    "text": "Новый пост",
-    "pub_date": "2022-01-02T22:41:33.648Z",
-    "image": "new_image.gif",
-    "group": 2
+  "id": 1,
+  "text": "Новый пост 1",
+  "author": "admin2",
+  "group": null,
+  "image": null,
+  "pub_date": "2022-01-04T14:15:31.229877Z",
+  "comments": []
 }
 ```
 __GET-запрос__ на получение списка всех публикаций с указанием параметров __limit__ и __offset__:
@@ -94,86 +95,29 @@ API возвращает список с пагинацией:
 ```
 Ответ:
 {
-    "count": 7,
-    "next": "http://127.0.0.1:8000/api/v1/posts/?limit=2&offset=4",
-    "previous": "http://127.0.0.1:8000/api/v1/posts/?limit=2",
-    "results": [
-        {
-            "id": 3,
-            "text": "Новый пост",
-            "author": "admin",
-            "group": 2,
-            "image": new_image.gif,
-            "pub_date": "2022-01-02T23:17:49.970699Z",
-            "comments": [
-                {
-                    "id": 1,
-                    "author": "pavel",
-                    "post": 3,
-                    "text": "Коммент к посту",
-                    "created": "2022-01-02T23:30:55.156898Z"
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "text": "Тестовый пост",
-            "author": "admin",
-            "group": 2,
-            "image": new_image.gif,
-            "pub_date": "2022-01-02T23:43:29.507337Z",
-            "comments": []
-        }
-    ]
-}
-```
-__POST-запрос__ на создание новой публикации:
-
-> Поле __text__ является обязательным
-
-`http://127.0.0.1:8000/api/v1/posts/`
-
-```
-Зарос:
-{
-    "text": "Новый пост",
-    "image": "new_image.gif",
-    "group": 2
-}
-```
-
-
-```
-Ответ:
-{
-    "id": 0,
-    "author": "admin",
-    "text": "Новый пост",
-    "pub_date": "2022-01-02T14:15:22Z",
-    "image": "new_image.gif",
-    "group": 2
-}
-```
-
-__POST-запрос__ на добавление комментария к публикации:
-
-`http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/`
-
-```
-Запрос:
-{
-    "text": "Комментарий к новому посту"
-}
-```
-
-```
-Ответ:
-{
-    "id": 3,
-    "author": "admin",
-    "text": "Комментарий к новому посту",
-    "created": "2022-01-02T23:55:22Z",
-    "post": 5
+  "count": 5,
+  "next": "http://127.0.0.1:8000/api/v1/posts/?limit=2&offset=4",
+  "previous": "http://127.0.0.1:8000/api/v1/posts/?limit=2",
+  "results": [
+    {
+      "id": 3,
+      "text": "новый пост 3",
+      "author": "admin2",
+      "group": null,
+      "image": null,
+      "pub_date": "2022-01-04T14:16:19.983889Z",
+      "comments": []
+    },
+    {
+      "id": 2,
+      "text": "Новый пост 2",
+      "author": "admin2",
+      "group": null,
+      "image": null,
+      "pub_date": "2022-01-04T14:16:05.877877Z",
+      "comments": []
+    }
+  ]
 }
 ```
 
@@ -185,7 +129,7 @@ __Получение JWT-токена__
 Запрос:
 {
 
-    "username": "admin",
+    "username": "admin2",
     "password": "password123"
 
 }
