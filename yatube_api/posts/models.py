@@ -53,6 +53,7 @@ class Post(models.Model):
     image = models.ImageField(
         verbose_name='Картинка',
         upload_to='posts/',
+        null=True,
         blank=True
     )
 
