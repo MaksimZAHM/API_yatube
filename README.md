@@ -72,11 +72,11 @@ http://127.0.0.1:8000/api/v1/posts/{id}/
 Ответ:
 {
   "id": 1,
-  "text": "Новый пост 1",
-  "author": "admin2",
+  "text": "Новый пост",
+  "author": "admin",
   "group": null,
   "image": null,
-  "pub_date": "2022-01-04T14:15:31.229877Z",
+  "pub_date": "2022-01-03T10:00:39.364506Z",
   "comments": []
 }
 ```
@@ -95,29 +95,76 @@ API возвращает список с пагинацией:
 ```
 Ответ:
 {
-  "count": 5,
-  "next": "http://127.0.0.1:8000/api/v1/posts/?limit=2&offset=4",
+  "count": 4,
+  "next": null,
   "previous": "http://127.0.0.1:8000/api/v1/posts/?limit=2",
   "results": [
     {
       "id": 3,
-      "text": "новый пост 3",
-      "author": "admin2",
+      "text": "И еще один новый пост",
+      "author": "admin",
       "group": null,
       "image": null,
-      "pub_date": "2022-01-04T14:16:19.983889Z",
+      "pub_date": "2022-01-05T08:44:55.037434Z",
       "comments": []
     },
     {
-      "id": 2,
-      "text": "Новый пост 2",
-      "author": "admin2",
+      "id": 4,
+      "text": "Новый пост №4",
+      "author": "admin",
       "group": null,
       "image": null,
-      "pub_date": "2022-01-04T14:16:05.877877Z",
+      "pub_date": "2022-01-05T08:45:19.129408Z",
       "comments": []
     }
   ]
+}
+```
+__POST-запрос__ на создание новой публикации:
+
+> Поле __text__ является обязательным
+
+`http://127.0.0.1:8000/api/v1/posts/`
+
+```
+Зарос:
+{
+    "text": "Новый пост №4"
+}
+```
+
+```
+Ответ:
+{
+  "id": 4,
+  "text": "Новый пост №4",
+  "author": "admin",
+  "group": null,
+  "image": null,
+  "pub_date": "2022-01-05T08:45:19.129408Z",
+  "comments": []
+}
+```
+
+__POST-запрос__ на добавление комментария к публикации:
+
+`http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/`
+
+```
+Запрос:
+{
+    "text": "Тестовый комментарий к посту"
+} 
+```
+
+```
+Ответ:
+{
+  "id": 1,
+  "author": "admin",
+  "post": 3,
+  "created": "2022-01-05T09:17:45.575284Z",
+  "text": "Тестовый комментарий к посту"
 }
 ```
 
