@@ -14,7 +14,7 @@ API для приложения [Yatube](https://github.com/MaksimZAHM/Yatube) -
 ## Стек технологий:
 - Python 3.7
 - Django 3.2
-- Django RESTFramework
+- Django REST Framework
 - Simple-JWT
 
 ## API для сервиса __Yatube__ позволяет:
@@ -37,7 +37,7 @@ __( Доступно после запуска проекта )__
 
 Клонировать репозиторий и перейти в него в командной строке:
 ```
-git clone ссылка на репозиторий
+git clone https://github.com/MaksimZAHM/API_yatube.git
 cd API_yatube
 ```
 
